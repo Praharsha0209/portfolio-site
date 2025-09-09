@@ -310,162 +310,156 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
               darkMode ? 'bg-gray-700' : 'bg-white'
             } shadow-lg`}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <label className={`block text-sm font-medium mb-2 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.name 
-                      ? 'border-red-500 focus:border-red-500' 
-                      : darkMode 
-                        ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white' 
-                        : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
-                  } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200`}
-                  placeholder="Your full name"
-                />
-                {errors.name && (
-                  <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
-                    <AlertCircle size={16} />
-                    <span>{errors.name}</span>
-                  </div>
-                )}
-              </div>
+            <form
+  action="https://formspree.io/f/xdklbeob"
+  method="POST"
+  className="space-y-6"
+>
+  {/* Name Field */}
+  <div>
+    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+      Name *
+    </label>
+    <input
+      name="name"                 // IMPORTANT
+      type="text"
+      value={formData.name}
+      onChange={(e) => handleInputChange('name', e.target.value)}
+      className={`w-full px-4 py-3 rounded-lg border ${
+        errors.name
+          ? 'border-red-500 focus:border-red-500'
+          : darkMode
+            ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white'
+            : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
+      } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200`}
+      placeholder="Your full name"
+      required
+    />
+    {errors.name && (
+      <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
+        <AlertCircle size={16} />
+        <span>{errors.name}</span>
+      </div>
+    )}
+  </div>
 
-              {/* Email Field */}
-              <div>
-                <label className={`block text-sm font-medium mb-2 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.email 
-                      ? 'border-red-500 focus:border-red-500' 
-                      : darkMode 
-                        ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white' 
-                        : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
-                  } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200`}
-                  placeholder="your.email@example.com"
-                />
-                {errors.email && (
-                  <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
-                    <AlertCircle size={16} />
-                    <span>{errors.email}</span>
-                  </div>
-                )}
-              </div>
+  {/* Email Field */}
+  <div>
+    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+      Email *
+    </label>
+    <input
+      name="email"                // IMPORTANT
+      type="email"
+      value={formData.email}
+      onChange={(e) => handleInputChange('email', e.target.value)}
+      className={`w-full px-4 py-3 rounded-lg border ${
+        errors.email
+          ? 'border-red-500 focus:border-red-500'
+          : darkMode
+            ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white'
+            : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
+      } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200`}
+      placeholder="your.email@example.com"
+      required
+    />
+    {errors.email && (
+      <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
+        <AlertCircle size={16} />
+        <span>{errors.email}</span>
+      </div>
+    )}
+  </div>
 
-              {/* Subject Field */}
-              <div>
-                <label className={`block text-sm font-medium mb-2 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  value={formData.subject}
-                  onChange={(e) => handleInputChange('subject', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.subject 
-                      ? 'border-red-500 focus:border-red-500' 
-                      : darkMode 
-                        ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white' 
-                        : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
-                  } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200`}
-                  placeholder="What would you like to discuss?"
-                />
-                {errors.subject && (
-                  <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
-                    <AlertCircle size={16} />
-                    <span>{errors.subject}</span>
-                  </div>
-                )}
-              </div>
+  {/* Subject Field */}
+  <div>
+    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+      Subject *
+    </label>
+    <input
+      name="subject"              // IMPORTANT
+      type="text"
+      value={formData.subject}
+      onChange={(e) => handleInputChange('subject', e.target.value)}
+      className={`w-full px-4 py-3 rounded-lg border ${
+        errors.subject
+          ? 'border-red-500 focus:border-red-500'
+          : darkMode
+            ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white'
+            : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
+      } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200`}
+      placeholder="What would you like to discuss?"
+      required
+    />
+    {errors.subject && (
+      <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
+        <AlertCircle size={16} />
+        <span>{errors.subject}</span>
+      </div>
+    )}
+  </div>
 
-              {/* Message Field */}
-              <div>
-                <label className={`block text-sm font-medium mb-2 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Message *
-                </label>
-                <textarea
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.message 
-                      ? 'border-red-500 focus:border-red-500' 
-                      : darkMode 
-                        ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white' 
-                        : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
-                  } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200 resize-none`}
-                  placeholder="Tell me about your project, idea, or how I can help..."
-                />
-                {errors.message && (
-                  <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
-                    <AlertCircle size={16} />
-                    <span>{errors.message}</span>
-                  </div>
-                )}
-              </div>
+  {/* Message Field */}
+  <div>
+    <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+      Message *
+    </label>
+    <textarea
+      name="message"              // IMPORTANT
+      rows={5}
+      value={formData.message}
+      onChange={(e) => handleInputChange('message', e.target.value)}
+      className={`w-full px-4 py-3 rounded-lg border ${
+        errors.message
+          ? 'border-red-500 focus:border-red-500'
+          : darkMode
+            ? 'border-gray-600 focus:border-blue-500 bg-gray-800 text-white'
+            : 'border-gray-300 focus:border-blue-500 bg-white text-gray-900'
+      } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200 resize-none`}
+      placeholder="Tell me about your project, idea, or how I can help..."
+      required
+    />
+    {errors.message && (
+      <div className="flex items-center space-x-2 mt-2 text-red-500 text-sm">
+        <AlertCircle size={16} />
+        <span>{errors.message}</span>
+      </div>
+    )}
+  </div>
 
-              {/* reCAPTCHA Simulation */}
-              <div className="flex items-center space-x-3">
-                <div className={`w-6 h-6 rounded border-2 flex items-center justify-center ${
-                  recaptchaVerified 
-                    ? 'bg-green-500 border-green-500' 
-                    : darkMode 
-                      ? 'border-gray-600 bg-gray-800' 
-                      : 'border-gray-300 bg-white'
-                }`}>
-                  {recaptchaVerified && <CheckCircle size={16} className="text-white" />}
-                </div>
-                <span className={`text-sm ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  {recaptchaVerified ? 'reCAPTCHA verified' : 'Verifying reCAPTCHA...'}
-                </span>
-              </div>
+  {/* reCAPTCHA Simulation (leave as-is visually) */}
+  <div className="flex items-center space-x-3">
+    <div className={`w-6 h-6 rounded border-2 flex items-center justify-center ${
+      recaptchaVerified
+        ? 'bg-green-500 border-green-500'
+        : darkMode
+          ? 'border-gray-600 bg-gray-800'
+          : 'border-gray-300 bg-white'
+    }`}>
+      {recaptchaVerified && <CheckCircle size={16} className="text-white" />}
+    </div>
+    <span className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+      {recaptchaVerified ? 'reCAPTCHA verified' : 'Verifying reCAPTCHA...'}
+    </span>
+  </div>
 
-              {/* Submit Button */}
-              <motion.button
-                type="submit"
-                disabled={isSubmitting || !recaptchaVerified}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full py-4 px-6 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
-                  isSubmitting || !recaptchaVerified
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl'
-                } text-white`}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </motion.button>
-            </form>
+  {/* Submit Button */}
+  <motion.button
+    type="submit"
+    // EASIEST: temporarily let people submit without your recaptcha gate.
+    // Change this back later if you want.
+    disabled={false}
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    className={`w-full py-4 px-6 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+      'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl'
+    } text-white`}
+  >
+    <Send size={20} />
+    <span>Send Message</span>
+  </motion.button>
+</form>
+
           </motion.div>
         </div>
       </div>
